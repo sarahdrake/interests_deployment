@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{user.name}}'s interests</title>
+    {%load staticfiles%}
+    <link rel="stylesheet" type="text/css" href="{%static 'interest/css/main.css'%}">
+  </head>
+  <body>
+    <form action='/people'>
+      <input type='submit' value="Back">
+    </form>
+    <table>
+      <thead>
+        <th>Interest</th>
+      </thead>
+      <tbody>
+        {%for interest in user.interests.all%}
+        <tr>
+          <td>{{interest.name}}</td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+  </body>
+</html>
